@@ -1,7 +1,7 @@
-// get input context
+
 $(document).ready(function () {
+  // get input context
   function getContext(formula, pos) {
-    console.log('getContext');
     let startOfContext = pos - 1;
     if (startOfContext < 0) {
       startOfContext = 1;
@@ -20,7 +20,6 @@ $(document).ready(function () {
 
   // get matching choices for user input given context
   function getChoices(context) {
-    console.log('getChoices');
       if (!context || context === "") {
         return [];
       }
@@ -30,29 +29,24 @@ $(document).ready(function () {
 
   // highlight suggestion choice on key up and down
   function highlightChoice(evt, choices) {
-    console.log('highlightChoice');
     $(document).ready(function() {
       $('.suggestion').css('background-color', '#ffffff');
     });
 
-
-    console.log(highlightedChoice);
     if (evt.keyCode === 40) {
-      console.log('down arrow');
       if (highlightedChoice === choices.length) {
         highlightedChoice = 1;
       } else {
         highlightedChoice++;
       }
     } else if (evt.keyCode === 38) {
-      console.log('up arrow');
       if (highlightedChoice === 1) {
         highlightedChoice = choices.length;
       } else {
         highlightedChoice--;
       }
     }
-    console.log(highlightedChoice);
+
     $('ul > li:nth-child(' + highlightedChoice + ')').css('background-color', '#d8d8d8');
   }
 
@@ -91,10 +85,14 @@ $(document).ready(function () {
     $('#suggestions').show();
   });
 
+
+  // kept outside of inputChange function in order to stop user input events from adding up.
+  // when inside inputChange function, each up/down arrow push to call the below code happened
+  // for each letter or symbol in input. so if 'avg' was in #formula-input, the below code
+  // would be called 3 times (once for each letter).
   $(document).keydown(function (evt) {
     if (evt.keyCode === 38 || evt.keyCode === 40) {
       if (highlightedChoice === false || highlightedChoice > choices.length) {
-        console.log('highlightedChoice reset');
         highlightedChoice = 0;
       }
       highlightChoice(evt, choices);
