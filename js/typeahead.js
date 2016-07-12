@@ -111,7 +111,6 @@ $(document).ready(function () {
   });
 
   $('#hint-button').click(function() {
-    // $('#hints').css('visibility', 'visible');
     $('#hints').toggle();
   });
 
