@@ -1,0 +1,93 @@
+body {
+  background-color: #f5fffe;
+  color: #313131;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  min-width: 350px;
+  padding-top: 30px;
+}
+
+h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  line-height: 1.5em;
+  letter-spacing: -0.05em;
+  margin-bottom: 20px;
+  padding: .1em 0;
+  color: #444;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+
+p {
+  font-size: 1.35em;
+  line-height: 1.5em;
+  margin-bottom: 22px;
+}
+
+#content {
+  background-color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 25px 20px;
+  width: 60%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+#formula-container { 
+  display: block; 
+  width: 100%; 
+  text-align: center; 
+  margin-bottom: 35px; 
+}
+
+#formula-container form {
+  /*display: inline-block;*/
+  margin: 0 auto;
+  margin: 5px 0 0 0;
+}
+
+#formula-input {
+  width: 60%;
+  height: 40px;
+  padding: 0 10px 0 10px;
+  background-color: #fff;
+  border: 5px solid #eeefed;
+  border-radius: 3px;
+  color: #aeaeae;
+  font-weight:normal;
+  font-size: 1.5em;
+}
+
+#formula-input:focus {
+  color: #858585;
+}
+
+#output-content {
+
+}
+
+#suggestions {
+  margin: 0 auto;
+  padding: 10px;
+  width: 60%;
+  text-align: left;
+}
+
+#suggestions ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  /*width: 60%;*/
+}
+
+
+
+
+.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow: auto; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: 1.2em; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #f0f0f0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
