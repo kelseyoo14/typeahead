@@ -1,8 +1,17 @@
 
 $(document).ready(function () {
+  let startOfContext = 0;
+  let endOfContext = 0;
+  let choices = [];
+  let highlightedChoice = false;
+
+  // call inputChange on user input
+  $('#formula-input').on('input', inputChange);
+
+
   // get input context
   function getContext(formula, pos) {
-    let startOfContext = pos - 1;
+    startOfContext = pos - 1;
     if (startOfContext < 0) {
       startOfContext = 1;
     }
@@ -14,7 +23,7 @@ $(document).ready(function () {
       }
       startOfContext--;
     }
-    let endOfContext = pos;
+    endOfContext = pos;
     return formula.substring(startOfContext, endOfContext);
   }
 
@@ -66,13 +75,29 @@ $(document).ready(function () {
       for (var i=0; i < choices.length; i++) {
         $('#suggestions ul').append('<li class="suggestion">' + choices[i] + '</li>');
       }
+
+      $('.suggestion').mouseover(function() {
+        $(document).ready(function() {
+          $('.suggestion').css('background-color', '#ffffff');
+        });
+        $(this).css('background-color', '#d8d8d8');
+      });
+
+      $('.suggestion').click(function() {
+        suggestionChoice = $(this).text();
+        let formulaInput = $('#formula-input').val();
+        formulaInput = formulaInput.slice(0, startOfContext) + suggestionChoice;
+        $('#formula-input').val(formulaInput);
+      });
     }
   }
 
   // call inputChange on user input
-  let choices = [];
-  let highlightedChoice = false;
-  $('#formula-input').on('input', inputChange);
+  // let startOfContext = 0;
+  // let endOfContext = 0;
+  // let choices = [];
+  // let highlightedChoice = false;
+  // $('#formula-input').on('input', inputChange);
 
 
   // hide suggestions if user clicks away from suggestions and input boxes
@@ -83,6 +108,11 @@ $(document).ready(function () {
   $('#formula-input, #suggestions ul').click(function(evt){
     evt.stopPropagation();
     $('#suggestions').show();
+  });
+
+  $('#hint-button').click(function() {
+    // $('#hints').css('visibility', 'visible');
+    $('#hints').toggle();
   });
 
 

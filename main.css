@@ -66,6 +66,23 @@ p {
   color: #858585;
 }
 
+#hints {
+  font-size: 1em;
+  margin-left: 1em;
+  display: none;
+}
+
+#hint-button {
+  background-color: #eeefed;
+  border-radius: 3px;
+}
+
+#hint-container {
+  margin: 0 auto;
+  text-align: left;
+  width: 60%;
+}
+
 #output-content {
 
 }
